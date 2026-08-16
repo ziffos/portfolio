@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ziffos — portfolio</title>
+  <meta name="description" content="Financial controller by day. Production software the rest of the time. Automation, dashboards and internal tools in Next.js, Supabase, n8n and Python.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply saved theme before first paint to avoid a flash.
+    (function () {
+      var theme = 'dark';
+      try { theme = localStorage.getItem('ziffos-theme') || 'dark'; } catch (e) {}
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+</head>
+<body>
+  <div class="page">
+    <main class="wrap">
+
+      <header class="intro">
+        <div class="toggle-row">
+          <button type="button" id="theme-toggle" class="theme-toggle" aria-live="polite">light mode</button>
+        </div>
+        <h1>Financial controller by day. Production software the rest of the time.</h1>
+        <div class="bio">
+          <p>I'm a Financial Controller at <a href="https://www.dhl.com/se-en/home/our-divisions/freight.html">DHL Freight Sweden</a>. Before that, five years at <a href="https://www.nordnet.se">Nordnet</a> in fund administration and post-trade operations.</p>
+          <p>On the side I build production systems — automation, dashboards, internal tools. Mostly Next.js, Supabase, n8n and Python.</p>
+          <p>I run the systems side of a family restaurant in Limassol: nightly data pipelines from four delivery platforms, an internal admin dashboard, automated reporting.</p>
+          <p>Based in Stockholm, relocating to Cyprus in 2026.</p>
+          <p class="contact"><a href="mailto:dinos.con96@gmail.com">dinos.con96@gmail.com</a> · <a href="https://github.com/ziffos">github.com/ziffos</a> · <a href="#">[LinkedIn]</a> · <a href="#">View CV</a></p>
+        </div>
+      </header>
+
+      <section class="rows">
+        <h2>Experience</h2>
+        <div class="xp-row">
+          <span class="xp-company">DHL Freight Sweden</span>
+          <span class="xp-role">Financial Controller</span>
+          <span class="xp-years">2026</span>
+        </div>
+        <div class="xp-row">
+          <span class="xp-company">Nordnet</span>
+          <span class="xp-role">Fund Administration &amp; Post-Trade</span>
+          <span class="xp-years">[years]</span>
+        </div>
+        <div class="xp-row">
+          <span class="xp-company">Betty's Crispy Chicken</span>
+          <span class="xp-role">Systems (remote)</span>
+          <span class="xp-years">[years]</span>
+        </div>
+      </section>
+
+      <section class="rows">
+        <h2>Projects</h2>
+        <div class="proj-row">
+          <div class="proj-head">
+            <span class="proj-name">Betty's Crispy Chicken</span>
+            <a class="proj-link" href="#">[url]</a>
+          </div>
+          <p class="proj-desc">Internal ops platform: delivery-platform data pipelines, HR module, payout reconciliation, TV menu system.</p>
+        </div>
+        <div class="proj-row">
+          <div class="proj-head">
+            <span class="proj-name">Plouma</span>
+            <a class="proj-link" href="#">in development</a>
+          </div>
+          <p class="proj-desc">C2C second-hand clothing marketplace for Cyprus. Expo/React Native, Supabase, Stripe Connect.</p>
+        </div>
+        <div class="proj-row">
+          <div class="proj-head">
+            <span class="proj-name">Virelio</span>
+            <a class="proj-link" href="#">[url]</a>
+          </div>
+          <p class="proj-desc">Web agency; sales site in Next.js/TypeScript.</p>
+        </div>
+        <div class="proj-row">
+          <div class="proj-head">
+            <span class="proj-name">Stockwatch</span>
+            <a class="proj-link" href="#">[url]</a>
+          </div>
+          <p class="proj-desc">Swedish stock tracker with AI explanations. React Native, Next.js, Neon Postgres.</p>
+        </div>
+      </section>
+
+      <section class="screens">
+        <h2>Screens</h2>
+        <div class="shot-grid">
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-bettys-admin.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">betty's·admin dashboard</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>betty's·admin dashboard</figcaption>
+          </figure>
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-bettys-tv.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">betty's·tv menu</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>betty's·tv menu</figcaption>
+          </figure>
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-bettys-payouts.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">betty's·payout reconciliation</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>betty's·payout reconciliation</figcaption>
+          </figure>
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-plouma-feed.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">plouma·marketplace feed</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>plouma·marketplace feed</figcaption>
+          </figure>
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-stockwatch.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">stockwatch·ticker view</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>stockwatch·ticker view</figcaption>
+          </figure>
+          <figure>
+            <div class="shot" data-src="assets/shots/shot-virelio.png">
+              <div class="shot-empty">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                <div class="cap">virelio·landing</div>
+              </div>
+              <div class="ring" aria-hidden="true"></div>
+            </div>
+            <figcaption>virelio·landing</figcaption>
+          </figure>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
