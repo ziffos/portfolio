@@ -1,9 +1,11 @@
 Drop project screenshots here, named after the tile ids in index.html:
 
 Betty's Crispy Chicken:
-  shot-bettys-admin.png
-  shot-bettys-tv.png
-  shot-bettys-payouts.png
+  shot-bettys-sales.png       (Sales Overview)
+  shot-bettys-marketing.png   (Marketing)
+  shot-bettys-menu.png        (Menu list)
+  shot-bettys-menu-edit.png   (Menu, item row expanded for editing)
+  shot-bettys-tv.png          (TV Displays)
 
 Vigor:
   shot-vigor-workout.png
