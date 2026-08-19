@@ -234,6 +234,18 @@ h2 {
   white-space: nowrap;
 }
 
+/* Narrow screens can't fit name + description + a full domain on one
+   line, so stack like the project cards: name and link, description
+   underneath. */
+@media (max-width: 480px) {
+  .site-row { flex-wrap: wrap; }
+  .site-name { flex: 1; }
+  .site-desc {
+    order: 3;
+    flex: 0 0 100%;
+  }
+}
+
 /* ── Project screens ─────────────────────────────────────── */
 
 .proj-shots {
