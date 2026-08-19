@@ -312,3 +312,144 @@ h2 {
   font-size: 11px;
   color: var(--faint);
 }
+
+/* ── Gallery (feature + thumbnails, built by main.js) ────── */
+
+.gallery {
+  margin-top: 12px;
+}
+
+.g-hero {
+  position: relative;
+  height: 340px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(127, 127, 127, 0.08);
+}
+
+@media (max-width: 480px) {
+  .g-hero { height: 260px; }
+}
+
+.g-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  cursor: zoom-in;
+}
+
+.g-hero img.portrait {
+  object-fit: contain;
+  object-position: center;
+}
+
+.g-hero .g-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 12px;
+  font: 13px/1.3 system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.g-hero .g-empty svg { opacity: 0.45; }
+
+.g-hero .g-empty .cap {
+  max-width: 90%;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  opacity: 0.75;
+}
+
+.g-hero .ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1.5px dashed currentColor;
+  opacity: 0.35;
+}
+
+.g-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.g-thumbs::-webkit-scrollbar { display: none; }
+
+.g-thumbs button {
+  flex: 0 0 auto;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.55;
+  height: 46px;
+  min-width: 46px;
+  color: var(--text);
+}
+
+.g-thumbs button:hover { opacity: 0.85; }
+
+.g-thumbs button.on {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.g-thumbs button img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+.g-thumbs button.ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  border-style: dashed;
+}
+
+.g-thumbs button.ph svg { opacity: 0.4; }
+
+.g-cap {
+  margin: 8px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+
+/* ── Lightbox ────────────────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vmin;
+  background: rgba(0, 0, 0, 0.78);
+  cursor: zoom-out;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
