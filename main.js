@@ -145,6 +145,7 @@
     gallery.appendChild(hero);
     gallery.appendChild(thumbs);
     gallery.appendChild(cap);
+    if (shots.length === 1) thumbs.style.display = 'none';
     grid.replaceWith(gallery);
     show(0);
   });

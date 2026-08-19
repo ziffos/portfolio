@@ -23,3 +23,7 @@ Plouma:
 PNG is wired up by default; to use .webp/.jpg, change the data-src in index.html.
 Tiles show the dashed placeholder until the file exists. To add or remove a
 tile, copy or delete a <figure> block inside the project's .proj-shots grid.
+
+n8n workflows:
+  wf-delivery-sync-canvas.png
+  wf-reporting-canvas.png
