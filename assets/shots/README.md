@@ -1,11 +1,10 @@
 Drop project screenshots here, named after the tile ids in index.html:
 
-Betty's Crispy Chicken:
-  shot-bettys-sales.png       (Sales Overview)
-  shot-bettys-marketing.png   (Marketing)
-  shot-bettys-menu.png        (Menu list)
-  shot-bettys-menu-edit.png   (Menu, item row expanded for editing)
-  shot-bettys-tv.png          (TV Displays)
+Betty's Crispy Chicken — done, WebP:
+  shot-bettys-sales.webp      (Sales Overview)
+  shot-bettys-marketing.webp  (Marketing)
+  shot-bettys-menu.webp       (Menu list)
+  shot-bettys-tv.webp         (TV Displays)
 
 Vigor:
   shot-vigor-workout.png
@@ -26,7 +25,9 @@ n8n Workflows (one image per workflow):
   wf-delivery-sync.png
   wf-reporting.png
 
-PNG is wired up by default; to use .webp/.jpg, change the data-src in index.html.
+Send full-resolution exports in any format; they get converted to WebP at
+1600px wide (quality 0.82) and the data-src in index.html points at the .webp.
+That took Betty's four screens from 4.4 MB to 360 KB.
 Tiles show the dashed placeholder until the file exists. To add or remove a
 tile, copy or delete a <figure> block inside the project's .proj-shots grid.
 
