@@ -53,9 +53,11 @@
 
   document.querySelectorAll('.proj-shots').forEach(function (grid) {
     var shots = Array.from(grid.querySelectorAll('figure')).map(function (fig) {
+      var desc = fig.querySelector('.shot-desc');
       return {
         src: fig.querySelector('.shot').dataset.src,
         label: fig.querySelector('figcaption').textContent,
+        desc: desc ? desc.textContent : '',
         img: null,
       };
     });
@@ -85,12 +87,18 @@
     thumbs.className = 'g-thumbs';
     var cap = document.createElement('p');
     cap.className = 'g-cap';
+    // Per-image description, swapped with the active shot. Only built when
+    // at least one shot carries one.
+    var hasDesc = shots.some(function (s) { return s.desc; });
+    var desc = document.createElement('p');
+    desc.className = 'g-desc';
 
     var active = 0;
     function show(i) {
       active = i;
       var s = shots[i];
       cap.textContent = s.label;
+      if (hasDesc) desc.textContent = s.desc;
       Array.from(thumbs.children).forEach(function (b, j) {
         b.classList.toggle('on', j === i);
       });
@@ -145,6 +153,7 @@
     gallery.appendChild(hero);
     gallery.appendChild(thumbs);
     gallery.appendChild(cap);
+    if (hasDesc) gallery.appendChild(desc);
     if (shots.length === 1) thumbs.style.display = 'none';
     grid.replaceWith(gallery);
     show(0);

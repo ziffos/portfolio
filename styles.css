@@ -431,6 +431,21 @@ h2 {
   color: var(--faint);
 }
 
+.g-desc {
+  margin: 4px 0 0;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* Per-image descriptions ride in the markup for the no-JS grid; the
+   gallery lifts them into .g-desc. */
+.shot-desc {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-wrap: pretty;
+}
+
 /* ── Lightbox ────────────────────────────────────────────── */
 
 .lightbox {

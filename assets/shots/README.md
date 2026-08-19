@@ -20,10 +20,14 @@ Plouma:
   shot-plouma-listing.png
   shot-plouma-profile.png
 
+n8n Workflows (one image per workflow):
+  wf-delivery-sync.png
+  wf-reporting.png
+
 PNG is wired up by default; to use .webp/.jpg, change the data-src in index.html.
 Tiles show the dashed placeholder until the file exists. To add or remove a
 tile, copy or delete a <figure> block inside the project's .proj-shots grid.
 
-n8n workflows:
-  wf-delivery-sync-canvas.png
-  wf-reporting-canvas.png
+Each <figure> may carry a <p class="shot-desc"> line. The gallery shows it
+under the image and swaps it when you switch thumbnails — used by the n8n card
+so every workflow gets its own description.
