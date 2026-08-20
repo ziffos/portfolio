@@ -463,7 +463,7 @@ h2 {
 
 .gallery.phone .g-hero {
   height: auto;
-  aspect-ratio: 1032 / 2048;
+  aspect-ratio: 812 / 1808;
   max-width: 300px;
   margin: 0 auto;
   border-radius: 14px;
@@ -518,7 +518,7 @@ h2 {
 
 /* No-JS fallback grid keeps the same portrait proportions. */
 .proj-shots[data-shape="phone"] .shot {
-  aspect-ratio: 1032 / 2048;
+  aspect-ratio: 812 / 1808;
 }
 
 /* ── Lightbox ────────────────────────────────────────────── */
