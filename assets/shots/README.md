@@ -11,7 +11,7 @@ Vigor — app, portrait phone screenshots:
   shot-vigor-coach.png
   shot-vigor-stats.png
 
-Mosaik — app, portrait phone screenshots:
+Mosaik — web app on mobile (phone frame + browser bar), 5 slots:
   shot-mosaik-overview.png
   shot-mosaik-analysis.png
   shot-mosaik-watchlist.png
@@ -43,3 +43,9 @@ Vigor, Mosaik and Plouma are apps: their grids carry data-shape="phone" in
 index.html, so their screens show in a centred phone frame (9:19.5, nothing
 cropped) instead of the wide frame used for dashboards. Send phone screenshots
 at full resolution — any aspect close to 9:19.5 fits without letterboxing.
+
+Frame types are set per project with data-shape on .proj-shots in index.html:
+  (none)      wide frame — Betty's dashboards
+  phone       phone frame — Plouma, Vigor (native apps)
+  phone-web   phone frame with a browser bar — Mosaik (web app on mobile).
+              Add data-url="example.com" to show a domain in the bar.

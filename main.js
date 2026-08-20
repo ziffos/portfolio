@@ -65,11 +65,24 @@
 
     var gallery = document.createElement('div');
     gallery.className = 'gallery';
-    // App projects frame their screens as a phone rather than a wide screen.
-    if (grid.dataset.shape === 'phone') gallery.classList.add('phone');
+    // App projects frame their screens as a phone rather than a wide screen;
+    // 'phone-web' adds a browser bar, for a web app used on a phone.
+    var shape = grid.dataset.shape;
+    if (shape === 'phone' || shape === 'phone-web') gallery.classList.add('phone');
+    if (shape === 'phone-web') gallery.classList.add('phone-web');
 
     var hero = document.createElement('div');
     hero.className = 'g-hero';
+    if (shape === 'phone-web') {
+      var chrome = document.createElement('div');
+      chrome.className = 'g-chrome';
+      chrome.setAttribute('aria-hidden', 'true');
+      var pill = document.createElement('div');
+      pill.className = 'pill';
+      pill.textContent = grid.dataset.url || '';
+      chrome.appendChild(pill);
+      hero.appendChild(chrome);
+    }
     var heroImg = document.createElement('img');
     heroImg.style.display = 'none';
     heroImg.tabIndex = 0;

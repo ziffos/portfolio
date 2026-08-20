@@ -503,6 +503,47 @@ h2 {
   background: transparent;
 }
 
+/* A web app on a phone: same frame, with a browser bar above the screen. */
+
+.gallery.phone-web .g-hero {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.gallery.phone-web .g-hero img {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+
+.g-chrome {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 7px 9px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(127, 127, 127, 0.07);
+}
+
+.g-chrome .pill {
+  flex: 1;
+  height: 15px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  color: var(--faint);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* The compact empty frame has no phone shape to sit in, so no browser bar. */
+.gallery.phone-web .g-hero.is-empty .g-chrome { display: none; }
+
 /* A phone-tall dashed box is a lot of dead space, so a slot without an
    image keeps the compact frame and takes phone shape once one loads. */
 .gallery.phone .g-hero.is-empty {
