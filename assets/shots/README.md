@@ -6,17 +6,17 @@ Betty's Crispy Chicken — done, WebP:
   shot-bettys-menu.webp       (Menu list)
   shot-bettys-tv.webp         (TV Displays)
 
-Vigor:
+Vigor — app, portrait phone screenshots:
   shot-vigor-workout.png
   shot-vigor-coach.png
   shot-vigor-stats.png
 
-Mosaik:
+Mosaik — app, portrait phone screenshots:
   shot-mosaik-overview.png
   shot-mosaik-analysis.png
   shot-mosaik-watchlist.png
 
-Plouma:
+Plouma — app, portrait phone screenshots:
   shot-plouma-feed.png
   shot-plouma-listing.png
   shot-plouma-profile.png
@@ -34,3 +34,8 @@ tile, copy or delete a <figure> block inside the project's .proj-shots grid.
 Each <figure> may carry a <p class="shot-desc"> line. The gallery shows it
 under the image and swaps it when you switch thumbnails — used by the n8n card
 so every workflow gets its own description.
+
+Vigor, Mosaik and Plouma are apps: their grids carry data-shape="phone" in
+index.html, so their screens show in a centred phone frame (9:19.5, nothing
+cropped) instead of the wide frame used for dashboards. Send phone screenshots
+at full resolution — any aspect close to 9:19.5 fits without letterboxing.

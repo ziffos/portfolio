@@ -458,6 +458,61 @@ h2 {
   text-wrap: pretty;
 }
 
+/* Phone-shaped galleries: app screenshots are portrait, so the frame is a
+   centred phone rather than a wide screen, and nothing is cropped. */
+
+.gallery.phone .g-hero {
+  height: auto;
+  aspect-ratio: 9 / 19.5;
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 14px;
+}
+
+.gallery.phone .g-hero img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.gallery.phone .g-thumbs {
+  justify-content: center;
+}
+
+.gallery.phone .g-thumbs button {
+  height: 72px;
+  min-width: 34px;
+}
+
+.gallery.phone .g-cap,
+.gallery.phone .g-desc {
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .gallery.phone .g-hero { max-width: 240px; }
+}
+
+/* A phone-tall dashed box is a lot of dead space, so a slot without an
+   image keeps the compact frame and takes phone shape once one loads. */
+.gallery.phone .g-hero.is-empty {
+  aspect-ratio: auto;
+  height: 340px;
+  max-width: none;
+  border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+  .gallery.phone .g-hero.is-empty { height: 260px; }
+}
+
+/* No-JS fallback grid keeps the same portrait proportions. */
+.proj-shots[data-shape="phone"] .shot {
+  aspect-ratio: 9 / 19.5;
+}
+
 /* ── Lightbox ────────────────────────────────────────────── */
 
 .lightbox {

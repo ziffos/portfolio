@@ -65,6 +65,8 @@
 
     var gallery = document.createElement('div');
     gallery.className = 'gallery';
+    // App projects frame their screens as a phone rather than a wide screen.
+    if (grid.dataset.shape === 'phone') gallery.classList.add('phone');
 
     var hero = document.createElement('div');
     hero.className = 'g-hero';
@@ -102,6 +104,7 @@
       Array.from(thumbs.children).forEach(function (b, j) {
         b.classList.toggle('on', j === i);
       });
+      hero.classList.toggle('is-empty', !s.img);
       if (s.img) {
         heroImg.src = s.src;
         heroImg.alt = s.label;
