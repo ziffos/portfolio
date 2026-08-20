@@ -16,10 +16,14 @@ Mosaik — app, portrait phone screenshots:
   shot-mosaik-analysis.png
   shot-mosaik-watchlist.png
 
-Plouma — app, portrait phone screenshots:
-  shot-plouma-feed.png
-  shot-plouma-listing.png
-  shot-plouma-profile.png
+Plouma — app, portrait phone screenshots (7 slots):
+  shot-plouma-welcome.webp
+  shot-plouma-home.webp
+  shot-plouma-directory.webp
+  shot-plouma-results.webp
+  shot-plouma-listing.webp
+  shot-plouma-chat-offer.webp
+  shot-plouma-profile.webp
 
 n8n Workflows (one image per workflow):
   wf-delivery-sync.png
