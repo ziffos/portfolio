@@ -11,10 +11,12 @@ Vigor — app, portrait phone screenshots:
   shot-vigor-coach.png
   shot-vigor-stats.png
 
-Mosaik — web app on mobile (phone frame + browser bar), 5 slots:
-  shot-mosaik-overview.png
-  shot-mosaik-analysis.png
-  shot-mosaik-watchlist.png
+Mosaik — web app on mobile (phone frame + browser bar) — done, WebP:
+  shot-mosaik-home.webp
+  shot-mosaik-company.webp
+  shot-mosaik-mosaic.webp
+  shot-mosaik-verdict.webp
+  shot-mosaik-company-mcd.webp
 
 Plouma — app, portrait phone screenshots (7 slots):
   shot-plouma-welcome.webp
