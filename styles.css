@@ -463,7 +463,7 @@ h2 {
 
 .gallery.phone .g-hero {
   height: auto;
-  aspect-ratio: 9 / 19.5;
+  aspect-ratio: 1032 / 2048;
   max-width: 300px;
   margin: 0 auto;
   border-radius: 14px;
@@ -495,6 +495,14 @@ h2 {
   .gallery.phone .g-hero { max-width: 240px; }
 }
 
+/* These exports already carry their own device frame and backdrop, so the
+   gallery's own border would box a box; drop it once an image is showing
+   (the empty state keeps its dashed frame). */
+.gallery.phone .g-hero:not(.is-empty) {
+  border-color: transparent;
+  background: transparent;
+}
+
 /* A phone-tall dashed box is a lot of dead space, so a slot without an
    image keeps the compact frame and takes phone shape once one loads. */
 .gallery.phone .g-hero.is-empty {
@@ -510,7 +518,7 @@ h2 {
 
 /* No-JS fallback grid keeps the same portrait proportions. */
 .proj-shots[data-shape="phone"] .shot {
-  aspect-ratio: 9 / 19.5;
+  aspect-ratio: 1032 / 2048;
 }
 
 /* ── Lightbox ────────────────────────────────────────────── */
