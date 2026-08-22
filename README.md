@@ -32,6 +32,6 @@ Pushing to `claude/portfolio-build-design-2xvw6y` deploys to GitHub Pages via
 
 ## Placeholders still to fill
 
-- `[LinkedIn]` and `CV` links in the header nav — both point at `#`
+- the `CV` link in the header nav still points at `#`
 - `admin.bettys.internal` and `mosaik.app` in the browser frames came from
   the design; swap them if the real addresses differ
