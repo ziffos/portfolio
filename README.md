@@ -31,6 +31,5 @@ Pushing to `claude/portfolio-build-design-2xvw6y` deploys to GitHub Pages via
 ## Placeholders still to fill
 
 - `[LinkedIn]` and `CV` links in the header nav — both point at `#`
-- Vigor has no screenshot yet, so its frame reads "Screenshot coming"
 - `admin.bettys.internal` and `mosaik.app` in the browser frames came from
   the design; swap them if the real addresses differ
