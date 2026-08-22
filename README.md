@@ -30,8 +30,9 @@ Pushing to `claude/portfolio-build-design-2xvw6y` deploys to GitHub Pages via
 - `assets/fonts/` — Instrument Serif, self-hosted (no external font request)
 - `assets/shots/` — screenshots; see the README there
 
-## Placeholders still to fill
+## Notes
 
-- the `CV` link in the header nav still points at `#`
-- `admin.bettys.internal` and `mosaik.app` in the browser frames came from
-  the design; swap them if the real addresses differ
+- Mosaik's browser frame has no address: it runs locally, so there is
+  nothing to show. Betty's reads `admin.bettys.internal`.
+- `assets/favicon-32.png` and `assets/apple-touch-icon.png` are rendered
+  from the site's own Instrument Serif — regenerate them if the mark changes.
