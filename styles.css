@@ -107,7 +107,7 @@ img { display: block; }
 
 .hero { padding: 88px 0 0; }
 
-.pill {
+.hero .pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -120,7 +120,7 @@ img { display: block; }
   margin-bottom: 28px;
 }
 
-.pill .dot {
+.hero .pill .dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -266,28 +266,6 @@ h1 {
   border-radius: 20px;
 }
 
-/* A web app on a phone gets a slim address bar. */
-
-.frame.phone.web .chrome {
-  display: flex;
-  padding: 0 2px 7px;
-}
-
-.frame.phone.web .pill {
-  flex: 1;
-  height: 16px;
-  border-radius: 8px;
-  background: rgba(127, 127, 127, 0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 8.5px;
-  color: var(--faint);
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 /* Browser windows — Betty's dashboards */
 
 .frame.browser .bar {
@@ -313,6 +291,50 @@ h1 {
 }
 
 .frame.browser .screen { height: 460px; }
+
+/* Same window, phone-shaped — Mosaik's screens are phone-sized. */
+.frame.browser.tall .screen {
+  height: auto;
+  aspect-ratio: 9 / 19.5;
+}
+
+/* Feature image with thumbnails under it — Betty's dashboards */
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.thumbs::-webkit-scrollbar { display: none; }
+
+.thumbs button {
+  flex: 0 0 auto;
+  height: 58px;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.12s, border-color 0.12s;
+}
+
+.thumbs button:hover { opacity: 0.85; }
+
+.thumbs button.on {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.thumbs img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
 
 .counter {
   margin: 12px 0 0;

@@ -1,3 +1,20 @@
+// Feature image with thumbnails under it — click one to swap the big image.
+(function () {
+  document.querySelectorAll('.gallery').forEach(function (gallery) {
+    var hero = gallery.querySelector('.frame img');
+    var buttons = Array.prototype.slice.call(gallery.querySelectorAll('.thumbs button'));
+    if (!hero || !buttons.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        hero.src = btn.dataset.src;
+        hero.alt = btn.dataset.alt || '';
+        buttons.forEach(function (b) { b.classList.toggle('on', b === btn); });
+      });
+    });
+  });
+})();
+
 // Screen strips: drag or swipe sideways through a project's screenshots,
 // with a counter showing where you are. Touch and trackpads scroll the
 // track natively; this adds mouse dragging on top.
