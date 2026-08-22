@@ -345,6 +345,16 @@ h1 {
   margin-left: 8px;
 }
 
+/* A live address in the bar is a link, without the page's link underline. */
+a.url {
+  border-bottom: 0;
+  color: var(--faint);
+}
+
+.frame.browser .bar a.url:hover {
+  color: var(--accent);
+}
+
 .frame.browser .screen { height: 460px; }
 
 /* Browser windows fill the frame — cropped from the top rather than
