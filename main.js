@@ -1,34 +1,9 @@
-// Theme toggle with persistence (default: dark).
+// Click a screenshot to view it full size. The frames crop hard — a
+// dashboard at 420px tall is unreadable otherwise.
 (function () {
-  var root = document.documentElement;
-  var btn = document.getElementById('theme-toggle');
+  var shots = document.querySelectorAll('.screen img');
+  if (!shots.length) return;
 
-  function current() {
-    return root.dataset.theme === 'light' ? 'light' : 'dark';
-  }
-
-  function render() {
-    btn.textContent = current() === 'dark' ? 'light mode' : 'dark mode';
-  }
-
-  btn.addEventListener('click', function () {
-    var next = current() === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('ziffos-theme', next); } catch (e) {}
-    render();
-  });
-
-  render();
-})();
-
-// Project screens: transform each .proj-shots placeholder grid into a
-// feature-image + thumbnails gallery with a lightbox. Images referenced by
-// data-src load if the file exists (drop them into assets/shots/); missing
-// ones show the dashed placeholder. Without JS the plain grid remains.
-(function () {
-  var ICON = '<svg width="__S__" height="__S__" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>';
-
-  // One lightbox for the whole page.
   var lb = document.createElement('div');
   lb.className = 'lightbox';
   lb.setAttribute('role', 'dialog');
@@ -36,142 +11,29 @@
   var lbImg = document.createElement('img');
   lb.appendChild(lbImg);
   document.body.appendChild(lb);
-  function openLightbox(src, alt) {
-    lbImg.src = src;
-    lbImg.alt = alt;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
+
+  function close() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
-  lb.addEventListener('click', closeLightbox);
+
+  lb.addEventListener('click', close);
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') close();
   });
 
-  document.querySelectorAll('.proj-shots').forEach(function (grid) {
-    var shots = Array.from(grid.querySelectorAll('figure')).map(function (fig) {
-      var desc = fig.querySelector('.shot-desc');
-      return {
-        src: fig.querySelector('.shot').dataset.src,
-        label: fig.querySelector('figcaption').textContent,
-        desc: desc ? desc.textContent : '',
-        img: null,
-      };
-    });
-    if (!shots.length) return;
-
-    var gallery = document.createElement('div');
-    gallery.className = 'gallery';
-    // App projects frame their screens as a phone rather than a wide screen;
-    // 'phone-web' adds a browser bar, for a web app used on a phone.
-    var shape = grid.dataset.shape;
-    if (shape === 'phone' || shape === 'phone-web') gallery.classList.add('phone');
-    if (shape === 'phone-web') gallery.classList.add('phone-web');
-
-    var hero = document.createElement('div');
-    hero.className = 'g-hero';
-    if (shape === 'phone-web') {
-      var chrome = document.createElement('div');
-      chrome.className = 'g-chrome';
-      chrome.setAttribute('aria-hidden', 'true');
-      var pill = document.createElement('div');
-      pill.className = 'pill';
-      pill.textContent = grid.dataset.url || '';
-      chrome.appendChild(pill);
-      hero.appendChild(chrome);
+  shots.forEach(function (img) {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    function open() {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
-    var heroImg = document.createElement('img');
-    heroImg.style.display = 'none';
-    heroImg.tabIndex = 0;
-    heroImg.setAttribute('role', 'button');
-    heroImg.setAttribute('aria-label', 'View full size');
-    var empty = document.createElement('div');
-    empty.className = 'g-empty';
-    empty.innerHTML = ICON.replace(/__S__/g, '28') + '<div class="cap"></div>';
-    var ring = document.createElement('div');
-    ring.className = 'ring';
-    ring.setAttribute('aria-hidden', 'true');
-    hero.appendChild(heroImg);
-    hero.appendChild(empty);
-    hero.appendChild(ring);
-
-    var thumbs = document.createElement('div');
-    thumbs.className = 'g-thumbs';
-    var cap = document.createElement('p');
-    cap.className = 'g-cap';
-    // Per-image description, swapped with the active shot. Only built when
-    // at least one shot carries one.
-    var hasDesc = shots.some(function (s) { return s.desc; });
-    var desc = document.createElement('p');
-    desc.className = 'g-desc';
-
-    var active = 0;
-    function show(i) {
-      active = i;
-      var s = shots[i];
-      cap.textContent = s.label;
-      if (hasDesc) desc.textContent = s.desc;
-      Array.from(thumbs.children).forEach(function (b, j) {
-        b.classList.toggle('on', j === i);
-      });
-      hero.classList.toggle('is-empty', !s.img);
-      if (s.img) {
-        heroImg.src = s.src;
-        heroImg.alt = s.label;
-        heroImg.classList.toggle('portrait', s.img.naturalHeight > s.img.naturalWidth);
-        heroImg.style.display = '';
-        empty.style.display = 'none';
-        ring.style.display = 'none';
-        heroImg.style.cursor = 'zoom-in';
-      } else {
-        heroImg.style.display = 'none';
-        empty.style.display = '';
-        empty.querySelector('.cap').textContent = s.label;
-        ring.style.display = '';
-      }
-    }
-
-    shots.forEach(function (s, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'ph';
-      b.innerHTML = ICON.replace(/__S__/g, '18');
-      b.setAttribute('aria-label', s.label);
-      b.addEventListener('click', function () { show(i); });
-      thumbs.appendChild(b);
-
-      var probe = new Image();
-      probe.onload = function () {
-        s.img = probe;
-        b.className = '';
-        b.innerHTML = '';
-        var t = document.createElement('img');
-        t.src = s.src;
-        t.alt = s.label;
-        b.appendChild(t);
-        if (i === active) show(active);
-      };
-      probe.src = s.src;
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
     });
-
-    function enlarge() {
-      var s = shots[active];
-      if (s.img) openLightbox(s.src, s.label);
-    }
-    heroImg.addEventListener('click', enlarge);
-    heroImg.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enlarge(); }
-    });
-
-    gallery.appendChild(hero);
-    gallery.appendChild(thumbs);
-    gallery.appendChild(cap);
-    if (hasDesc) gallery.appendChild(desc);
-    if (shots.length === 1) thumbs.style.display = 'none';
-    grid.replaceWith(gallery);
-    show(0);
   });
 })();

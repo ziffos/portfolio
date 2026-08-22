@@ -1,565 +1,358 @@
+/* ── Fonts ───────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* ── Tokens ──────────────────────────────────────────────── */
 
 :root {
-  --cols: 2;
-  --bg: #1a1918;
-  --text: #d8d5ce;
-  --muted: #8f8b81;
-  --faint: #605c53;
-  --line: #2c2a27;
-  --accent: #d19a54;
+  --bg: #f7f4ee;
+  --panel: #fffdf9;
+  --text: #1c1a17;
+  --muted: #57524a;
+  --faint: #9a9385;
+  --line: #e2dccf;
+  --border: #d5cfc2;
+  --underline: #c9c2b4;
+  --accent: #1f513f;
 
-  --mono: ui-monospace, 'SF Mono', Menlo, monospace;
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
-
-:root[data-theme="light"] {
-  --bg: #faf9f6;
-  --text: #29261f;
-  --muted: #6f6a5e;
-  --faint: #a39d8f;
-  --line: #e6e2d8;
-  --accent: #a35f14;
-}
-
-/* Alternate accents: set data-accent="moss" or "blue" on <html>. */
-:root[data-accent="moss"] { --accent: #a3b86c; }
-:root[data-accent="moss"][data-theme="light"] { --accent: #5e7a2a; }
-:root[data-accent="blue"] { --accent: #84a8c4; }
-:root[data-accent="blue"][data-theme="light"] { --accent: #3a6a94; }
-
-@media (min-width: 560px) {
-  :root { --cols: 3; }
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, Menlo, monospace;
 }
 
 /* ── Base ────────────────────────────────────────────────── */
 
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--underline);
 }
 
 a:hover {
-  color: var(--text);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-.page {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.65;
-  transition: background 0.2s, color 0.2s;
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
+img { display: block; }
+
+/* 768 = the design's 720px content column plus its 24px gutters, since
+   everything here is border-box. */
 .wrap {
-  max-width: 600px;
+  max-width: 768px;
   margin: 0 auto;
-  padding: 56px 20px 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 72px;
+  padding: 0 24px 96px;
 }
 
 /* ── Header ──────────────────────────────────────────────── */
 
-.intro {
+.site-head {
   display: flex;
-  flex-direction: column;
-  gap: 28px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 28px 0 0;
 }
 
-.toggle-row {
-  display: flex;
-  justify-content: flex-end;
+.name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.site-head nav {
+  display: flex;
+  gap: 18px;
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--faint);
-  letter-spacing: 0.04em;
 }
 
-.theme-toggle:hover {
-  color: var(--text);
+/* ── Hero ────────────────────────────────────────────────── */
+
+.hero { padding: 88px 0 0; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 28px;
+}
+
+.pill .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 h1 {
   margin: 0;
-  font-size: 19px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.08;
   letter-spacing: -0.01em;
-  line-height: 1.4;
   text-wrap: pretty;
 }
 
-.bio {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  color: var(--text);
-}
-
-.bio p {
-  margin: 0;
-  text-wrap: pretty;
-}
-
-.bio .contact {
+.lead {
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--muted);
-  text-wrap: auto;
+  max-width: 560px;
+  text-wrap: pretty;
 }
 
-/* ── Section labels ──────────────────────────────────────── */
+/* ── Section headers ─────────────────────────────────────── */
 
-h2 {
-  margin: 0 0 10px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-
-/* ── Experience ──────────────────────────────────────────── */
-
-.rows {
+.sec-head {
   display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.xp-row {
-  display: flex;
+  justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 10px;
 }
 
-.xp-company {
-  font-weight: 500;
-}
-
-.xp-role {
-  color: var(--muted);
-  flex: 1;
-  min-width: 0;
-}
-
-.xp-years {
+.sec-head h2 {
+  margin: 0;
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.count {
+  font-family: var(--mono);
+  font-size: 12px;
   color: var(--faint);
-  white-space: nowrap;
 }
 
 /* ── Projects ────────────────────────────────────────────── */
 
-.proj-row {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 12px 0 20px;
-  border-top: 1px solid var(--line);
+.projects { padding: 96px 0 0; }
+
+.proj {
+  padding: 48px 0 56px;
+  border-bottom: 1px solid var(--line);
 }
 
 .proj-head {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
-.proj-name {
-  font-weight: 500;
-  flex: 1;
+.proj h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
 }
 
-.proj-link {
+.tools {
   font-family: var(--mono);
-  font-size: 12.5px;
-  white-space: nowrap;
+  font-size: 11.5px;
+  color: var(--faint);
 }
 
 .proj-desc {
-  margin: 0;
+  margin: 10px 0 24px;
+  font-size: 15.5px;
+  line-height: 1.6;
   color: var(--muted);
-  text-wrap: pretty;
+  max-width: 560px;
 }
 
-.proj-tools {
-  margin: 2px 0 0;
+/* Browser frame — web projects */
+
+.browser {
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.browser .bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.browser .bar .d {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.browser .bar .url {
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 10px;
+  color: var(--faint);
+  margin-left: 8px;
+}
+
+.browser .screen {
+  height: 420px;
+  overflow: hidden;
+}
+
+.browser .screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  cursor: zoom-in;
+}
+
+/* Paired app projects */
+
+.proj.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+}
+
+.proj.pair .proj-desc { margin: 10px 0 6px; }
+
+.phone {
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--panel);
+  padding: 8px;
+}
+
+.phone .screen {
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.phone .screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  cursor: zoom-in;
+}
+
+.empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border: 1.5px dashed var(--border);
+  border-radius: 20px;
+  font-family: var(--mono);
+  font-size: 11.5px;
   color: var(--faint);
 }
 
 /* ── Websites ────────────────────────────────────────────── */
 
+.sites { padding: 80px 0 0; }
+
 .site-row {
-  display: flex;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 16px;
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15.5px;
 }
 
-.site-name {
-  font-weight: 500;
+.site-name { font-weight: 600; }
+
+.site-kind {
+  color: var(--faint);
+  margin-left: 12px;
 }
 
-.site-desc {
-  color: var(--muted);
-  flex: 1;
-  min-width: 0;
-}
-
-.site-link {
+.site-row a {
   font-family: var(--mono);
   font-size: 12.5px;
   white-space: nowrap;
 }
 
-/* Narrow screens can't fit name + description + a full domain on one
-   line, so stack like the project cards: name and link, description
-   underneath. */
-@media (max-width: 480px) {
-  .site-row { flex-wrap: wrap; }
-  .site-name { flex: 1; }
-  .site-desc {
-    order: 3;
-    flex: 0 0 100%;
-  }
+/* ── Footer ──────────────────────────────────────────────── */
+
+footer {
+  padding: 110px 0 0;
+  text-align: center;
 }
 
-/* ── Project screens ─────────────────────────────────────── */
-
-.proj-shots {
-  display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.proj-shots figure {
+footer .label {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
-.shot {
-  aspect-ratio: 4 / 3;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-  font: 13px/1.3 system-ui, -apple-system, sans-serif;
-  background: rgba(127, 127, 127, 0.08);
+footer .mail {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 38px;
 }
 
-.shot img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.shot-empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  text-align: center;
-  padding: 12px;
-  box-sizing: border-box;
-  user-select: none;
-}
-
-.shot-empty svg {
-  opacity: 0.45;
-}
-
-.shot-empty .cap {
-  max-width: 90%;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  opacity: 0.75;
-}
-
-.ring {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border: 1.5px dashed currentColor;
-  opacity: 0.35;
-}
-
-.shot.filled .shot-empty,
-.shot.filled .ring {
-  display: none;
-}
-
-.proj-shots figcaption {
+footer .colophon {
+  margin: 40px 0 0;
   font-family: var(--mono);
   font-size: 11px;
   color: var(--faint);
-}
-
-/* ── Gallery (feature + thumbnails, built by main.js) ────── */
-
-.gallery {
-  margin-top: 12px;
-}
-
-.g-hero {
-  position: relative;
-  height: 340px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  overflow: hidden;
-  background: rgba(127, 127, 127, 0.08);
-}
-
-@media (max-width: 480px) {
-  .g-hero { height: 260px; }
-}
-
-.g-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  cursor: zoom-in;
-}
-
-.g-hero img.portrait {
-  object-fit: contain;
-  object-position: center;
-}
-
-.g-hero .g-empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  text-align: center;
-  padding: 12px;
-  font: 13px/1.3 system-ui, -apple-system, sans-serif;
-  user-select: none;
-}
-
-.g-hero .g-empty svg { opacity: 0.45; }
-
-.g-hero .g-empty .cap {
-  max-width: 90%;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  opacity: 0.75;
-}
-
-.g-hero .ring {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border: 1.5px dashed currentColor;
-  opacity: 0.35;
-}
-
-.g-thumbs {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.g-thumbs::-webkit-scrollbar { display: none; }
-
-.g-thumbs button {
-  flex: 0 0 auto;
-  padding: 0;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0.55;
-  height: 46px;
-  min-width: 46px;
-  color: var(--text);
-}
-
-.g-thumbs button:hover { opacity: 0.85; }
-
-.g-thumbs button.on {
-  opacity: 1;
-  border-color: var(--accent);
-}
-
-.g-thumbs button img {
-  height: 100%;
-  width: auto;
-  display: block;
-}
-
-.g-thumbs button.ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62px;
-  border-style: dashed;
-}
-
-.g-thumbs button.ph svg { opacity: 0.4; }
-
-.g-cap {
-  margin: 8px 0 0;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
-}
-
-.g-desc {
-  margin: 4px 0 0;
-  color: var(--muted);
-  text-wrap: pretty;
-}
-
-/* Per-image descriptions ride in the markup for the no-JS grid; the
-   gallery lifts them into .g-desc. */
-.shot-desc {
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  text-wrap: pretty;
-}
-
-/* Phone-shaped galleries: app screenshots are portrait, so the frame is a
-   centred phone rather than a wide screen, and nothing is cropped. */
-
-.gallery.phone .g-hero {
-  height: auto;
-  aspect-ratio: 812 / 1808;
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 14px;
-}
-
-.gallery.phone .g-hero img {
-  object-fit: contain;
-  object-position: center;
-}
-
-.gallery.phone .g-thumbs {
-  justify-content: center;
-}
-
-.gallery.phone .g-thumbs button {
-  height: 72px;
-  min-width: 34px;
-}
-
-.gallery.phone .g-cap,
-.gallery.phone .g-desc {
-  max-width: 460px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-@media (max-width: 480px) {
-  .gallery.phone .g-hero { max-width: 240px; }
-}
-
-/* These exports already carry their own device frame and backdrop, so the
-   gallery's own border would box a box; drop it once an image is showing
-   (the empty state keeps its dashed frame). */
-.gallery.phone .g-hero:not(.is-empty) {
-  border-color: transparent;
-  background: transparent;
-}
-
-/* A web app on a phone: same frame, with a browser bar above the screen. */
-
-.gallery.phone-web .g-hero {
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-}
-
-.gallery.phone-web .g-hero img {
-  flex: 1;
-  min-height: 0;
-  height: auto;
-}
-
-.g-chrome {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 7px 9px;
-  border-bottom: 1px solid var(--line);
-  background: rgba(127, 127, 127, 0.07);
-}
-
-.g-chrome .pill {
-  flex: 1;
-  height: 15px;
-  border-radius: 8px;
-  background: rgba(127, 127, 127, 0.16);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 8.5px;
-  color: var(--faint);
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* The compact empty frame has no phone shape to sit in, so no browser bar. */
-.gallery.phone-web .g-hero.is-empty .g-chrome { display: none; }
-
-/* A phone-tall dashed box is a lot of dead space, so a slot without an
-   image keeps the compact frame and takes phone shape once one loads. */
-.gallery.phone .g-hero.is-empty {
-  aspect-ratio: auto;
-  height: 340px;
-  max-width: none;
-  border-radius: 6px;
-}
-
-@media (max-width: 480px) {
-  .gallery.phone .g-hero.is-empty { height: 260px; }
-}
-
-/* No-JS fallback grid keeps the same portrait proportions. */
-.proj-shots[data-shape="phone"] .shot {
-  aspect-ratio: 812 / 1808;
 }
 
 /* ── Lightbox ────────────────────────────────────────────── */
@@ -572,7 +365,7 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 4vmin;
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(28, 26, 23, 0.82);
   cursor: zoom-out;
 }
 
@@ -581,6 +374,38 @@ h2 {
 .lightbox img {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border);
+}
+
+/* ── Narrow screens ──────────────────────────────────────── */
+
+/* The canvas is a single desktop artboard; these rules carry its
+   proportions down to a phone. */
+
+@media (max-width: 640px) {
+  h1 { font-size: 38px; }
+  .hero { padding: 64px 0 0; }
+  .projects { padding: 72px 0 0; }
+  footer .mail { font-size: 26px; }
+}
+
+@media (max-width: 560px) {
+  /* Two phones side by side leave each about 140px wide — too small to
+     read, so they stack. */
+  .proj.pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+
+  .browser .screen { height: 300px; }
+
+  .site-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .site-kind {
+    display: block;
+    margin-left: 0;
+  }
 }

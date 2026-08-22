@@ -3,358 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ziffos — portfolio</title>
-  <meta name="description" content="Financial controller by day. Production software the rest of the time. Automation, dashboards and internal tools in Next.js, Supabase, n8n and Python.">
+  <title>Dinos Constantinou</title>
+  <meta name="description" content="Financial controller with a builder's habit — Next.js, Supabase, Python and n8n. Internal tools and data systems that businesses actually run on.">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Apply saved theme before first paint to avoid a flash.
-    (function () {
-      var theme = 'dark';
-      try { theme = localStorage.getItem('ziffos-theme') || 'dark'; } catch (e) {}
-      document.documentElement.dataset.theme = theme;
-    })();
-  </script>
 </head>
 <body>
-  <svg style="display: none" aria-hidden="true">
-    <symbol id="icon-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></symbol>
-  </svg>
-  <div class="page">
-    <main class="wrap">
+  <div class="wrap">
 
-      <header class="intro">
-        <div class="toggle-row">
-          <button type="button" id="theme-toggle" class="theme-toggle" aria-live="polite">light mode</button>
-        </div>
-        <h1>Financial controller by day. Production software the rest of the time.</h1>
-        <div class="bio">
-          <p>I'm a Financial Controller at <a href="https://www.dhl.com/se-en/home/our-divisions/freight.html">DHL Freight Sweden</a>. Before that, five years at <a href="https://www.nordnet.se">Nordnet</a> in fund administration and post-trade operations.</p>
-          <p>On the side I build production systems — automation, dashboards, internal tools. Mostly Next.js, Supabase, n8n and Python.</p>
-          <p>I run the systems side of a family restaurant in Limassol: nightly data pipelines from four delivery platforms, an internal admin dashboard, automated reporting.</p>
-          <p>Based in Stockholm, relocating to Cyprus in 2026.</p>
-          <p class="contact"><a href="mailto:dinos.con96@gmail.com">dinos.con96@gmail.com</a> · <a href="https://github.com/ziffos">github.com/ziffos</a> · <a href="#">[LinkedIn]</a> · <a href="#">View CV</a></p>
-        </div>
-      </header>
+    <header class="site-head">
+      <span class="name">Dinos Constantinou</span>
+      <nav>
+        <a href="mailto:dinos.con96@gmail.com">Email</a>
+        <a href="https://github.com/ziffos" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#">CV</a>
+      </nav>
+    </header>
 
-      <section class="rows">
-        <h2>Experience</h2>
-        <div class="xp-row">
-          <span class="xp-company">DHL Freight Sweden</span>
-          <span class="xp-role">Financial Controller</span>
-          <span class="xp-years">2026</span>
-        </div>
-        <div class="xp-row">
-          <span class="xp-company">Nordnet</span>
-          <span class="xp-role">Fund Administration &amp; Post-Trade</span>
-          <span class="xp-years">[years]</span>
-        </div>
-        <div class="xp-row">
-          <span class="xp-company">Betty's Crispy Chicken</span>
-          <span class="xp-role">Systems (remote)</span>
-          <span class="xp-years">[years]</span>
-        </div>
-      </section>
+    <section class="hero">
+      <div class="pill"><span class="dot" aria-hidden="true"></span>Open to work — Stockholm → Cyprus 2026</div>
+      <h1>I build internal tools and data systems that businesses actually run on.</h1>
+      <p class="lead">Financial controller with a builder's habit — Next.js, Supabase, Python and n8n. Below: four production projects, from a restaurant ops platform to an AI stock terminal.</p>
+    </section>
 
-      <section class="rows">
+    <section class="projects">
+      <div class="sec-head">
         <h2>Projects</h2>
+        <span class="count">04</span>
+      </div>
 
-        <div class="proj-row">
-          <div class="proj-head">
-            <span class="proj-name">Betty's Crispy Chicken</span>
+      <article class="proj">
+        <div class="proj-head">
+          <h3>Betty's Crispy Chicken — Ops Platform</h3>
+          <span class="tools">Next.js · Supabase · n8n · Python</span>
+        </div>
+        <p class="proj-desc">Runs a real restaurant daily: nightly pipelines pull sales from POS, Wolt, Bolt and Foody into one dashboard, plus HR, payout reconciliation and TV menus.</p>
+        <div class="browser">
+          <div class="bar">
+            <span class="d" aria-hidden="true"></span><span class="d" aria-hidden="true"></span><span class="d" aria-hidden="true"></span>
+            <span class="url">admin.bettys.internal</span>
           </div>
-          <p class="proj-desc">Internal ops platform: delivery-platform data pipelines, HR module, payout reconciliation, TV menu system.</p>
-          <p class="proj-tools">Next.js · Supabase · n8n · Python</p>
-          <div class="proj-shots">
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-bettys-sales.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">betty's·sales overview</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>betty's·sales overview</figcaption>
-              <p class="shot-desc">Performance metrics and sales breakdown across POS, Wolt, Bolt and Foody — revenue, orders, average ticket, source split, revenue by day and hour.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-bettys-marketing.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">betty's·marketing</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>betty's·marketing</figcaption>
-              <p class="shot-desc">Campaign performance, reach, and follower insights, with ad spend tracked against sales revenue.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-bettys-menu.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">betty's·menu</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>betty's·menu</figcaption>
-              <p class="shot-desc">Menu items, per-platform pricing and availability — one price column per delivery platform and the POS.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-bettys-tv.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">betty's·tv displays</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>betty's·tv displays</figcaption>
-              <p class="shot-desc">Live previews of the in-store menu screens at native 1920×1080.</p>
-            </figure>
+          <div class="screen">
+            <img src="assets/shots/shot-bettys-sales.webp" alt="Betty's admin dashboard — sales overview">
           </div>
         </div>
+      </article>
 
-        <div class="proj-row">
-          <div class="proj-head">
-            <span class="proj-name">Vigor</span>
-            <a class="proj-link" href="#">[url]</a>
+      <article class="proj">
+        <div class="proj-head">
+          <h3>Mosaik</h3>
+          <span class="tools">Next.js · AI</span>
+        </div>
+        <p class="proj-desc">AI stock analysis terminal for Nordic and US equities — search any ticker, keep a scored watchlist.</p>
+        <div class="browser">
+          <div class="bar">
+            <span class="d" aria-hidden="true"></span><span class="d" aria-hidden="true"></span><span class="d" aria-hidden="true"></span>
+            <span class="url">mosaik.app</span>
           </div>
-          <p class="proj-desc">AI training agent — a workout coach powered by AI.</p>
-          <p class="proj-tools">Next.js · AI</p>
-          <div class="proj-shots" data-shape="phone">
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-vigor-workout.png">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">vigor·workout</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>vigor·workout</figcaption>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-vigor-coach.png">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">vigor·ai coach</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>vigor·ai coach</figcaption>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-vigor-stats.png">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">vigor·stats</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>vigor·stats</figcaption>
-            </figure>
+          <div class="screen">
+            <img src="assets/shots/shot-mosaik-home.webp" alt="Mosaik terminal — search and scored watchlist">
           </div>
         </div>
+      </article>
 
-        <div class="proj-row">
-          <div class="proj-head">
-            <span class="proj-name">Mosaik</span>
-            <a class="proj-link" href="#">[url]</a>
-          </div>
-          <p class="proj-desc">AI stock analysis terminal for Nordic and US equities.</p>
-          <p class="proj-tools">[tools]</p>
-          <div class="proj-shots" data-shape="phone-web">
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-mosaik-home.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">mosaik·home</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>mosaik·home</figcaption>
-              <p class="shot-desc">Search any ticker and keep a watchlist — each name carries its own score, sector and time since the last analysis.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-mosaik-company.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">mosaik·company card</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>mosaik·company card</figcaption>
-              <p class="shot-desc">The company card: price, key multiples and an AI-written read on what is actually driving the business.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-mosaik-mosaic.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">mosaik·the mosaic</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>mosaik·the mosaic</figcaption>
-              <p class="shot-desc">Every metric as a tile — sized by its weight in the template, coloured by its score. Tap a tile for the full card.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-mosaik-verdict.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">mosaik·the verdict</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>mosaik·the verdict</figcaption>
-              <p class="shot-desc">One score out of ten, built from growth, valuation, profitability and financial strength, with a one-line thesis and peer comparison.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-mosaik-company-mcd.webp">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">mosaik·company card · mcd</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>mosaik·company card · mcd</figcaption>
-              <p class="shot-desc">The same card for a consumer name, scored on the metrics that matter for a franchise business.</p>
-            </figure>
+      <article class="proj pair">
+        <div>
+          <h3>Vigor</h3>
+          <p class="proj-desc">AI workout coach — plans, logs and adapts your training.</p>
+          <span class="tools">Next.js · AI</span>
+          <div class="phone">
+            <div class="screen">
+              <div class="empty">Screenshot coming</div>
+            </div>
           </div>
         </div>
-
-        <div class="proj-row">
-          <div class="proj-head">
-            <span class="proj-name">Plouma</span>
-            <a class="proj-link" href="#">in development</a>
-          </div>
-          <p class="proj-desc">C2C second-hand clothing marketplace for Cyprus.</p>
-          <p class="proj-tools">Expo/React Native · Supabase · Stripe Connect</p>
-          <div class="proj-shots" data-shape="phone">
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-welcome.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·welcome</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·welcome</figcaption>
-              <p class="shot-desc">Onboarding — free listings, every order protected until it arrives, and the app in English or Greek.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-home.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·home</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·home</figcaption>
-              <p class="shot-desc">Feed of what's fresh in Limassol, with quick filters and a prompt to list what you don't wear.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-directory.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·directory</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·directory</figcaption>
-              <p class="shot-desc">Browse by category, split across women's, men's and kids'.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-results.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·results</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·results</figcaption>
-              <p class="shot-desc">Category results with sorting, prices, sizes and saved counts.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-listing.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·listing</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·listing</figcaption>
-              <p class="shot-desc">Listing page: brand, size and condition, with buyer protection and shipping folded into the total.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-chat-offer.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·chat & offer</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·chat & offer</figcaption>
-              <p class="shot-desc">Buyer and seller chat, with an offer to accept, counter or decline.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/shot-plouma-profile.webp?v=2">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">plouma·profile</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>plouma·profile</figcaption>
-              <p class="shot-desc">Seller profile: earnings this month, own listings, saved items and orders.</p>
-            </figure>
+        <div>
+          <h3>Plouma</h3>
+          <p class="proj-desc">C2C second-hand marketplace for Cyprus, with payments.</p>
+          <span class="tools">Expo · Stripe</span>
+          <div class="phone">
+            <div class="screen">
+              <img src="assets/shots/shot-plouma-home.webp" alt="Plouma marketplace feed">
+            </div>
           </div>
         </div>
+      </article>
+    </section>
 
-        <div class="proj-row">
-          <div class="proj-head">
-            <span class="proj-name">n8n Workflows</span>
-          </div>
-          <p class="proj-desc">Automation workflows running behind the restaurant — each screen below is one workflow.</p>
-          <p class="proj-tools">n8n · Supabase · Python</p>
-          <div class="proj-shots">
-            <figure>
-              <div class="shot" data-src="assets/shots/wf-delivery-sync.png">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">delivery platform sync</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>delivery platform sync</figcaption>
-              <p class="shot-desc">Nightly pipeline pulling order data from four delivery platforms into Supabase.</p>
-            </figure>
-            <figure>
-              <div class="shot" data-src="assets/shots/wf-reporting.png">
-                <div class="shot-empty">
-                  <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-img"></use></svg>
-                  <div class="cap">automated reporting</div>
-                </div>
-                <div class="ring" aria-hidden="true"></div>
-              </div>
-              <figcaption>automated reporting</figcaption>
-              <p class="shot-desc">Daily reporting for the restaurant, generated and delivered automatically.</p>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="rows">
+    <section class="sites">
+      <div class="sec-head">
         <h2>Websites</h2>
-        <div class="site-row">
-          <span class="site-name">Betty's Crispy Chicken</span>
-          <span class="site-desc">Restaurant site</span>
-          <a class="site-link" href="https://bettyscrispychicken.com">bettyscrispychicken.com</a>
-        </div>
-        <div class="site-row">
-          <span class="site-name">Psistaries Kapatsos</span>
-          <span class="site-desc">Restaurant site</span>
-          <a class="site-link" href="https://kapatsos.com">kapatsos.com</a>
-        </div>
-      </section>
+        <span class="count">02</span>
+      </div>
+      <div class="site-row">
+        <div><span class="site-name">Betty's Crispy Chicken</span><span class="site-kind">Restaurant site</span></div>
+        <a href="https://bettyscrispychicken.com" target="_blank" rel="noopener">bettyscrispychicken.com ↗</a>
+      </div>
+      <div class="site-row">
+        <div><span class="site-name">Psistaries Kapatsos</span><span class="site-kind">Restaurant site</span></div>
+        <a href="https://kapatsos.com" target="_blank" rel="noopener">kapatsos.com ↗</a>
+      </div>
+    </section>
 
-    </main>
+    <footer>
+      <p class="label">Get in touch</p>
+      <a class="mail" href="mailto:dinos.con96@gmail.com">dinos.con96@gmail.com</a>
+      <p class="colophon">© 2026 · Stockholm / Limassol</p>
+    </footer>
+
   </div>
   <script src="main.js"></script>
 </body>

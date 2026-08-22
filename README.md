@@ -1,6 +1,10 @@
-# ziffos — portfolio
+# Dinos Constantinou — portfolio
 
 Single-page portfolio. Static HTML/CSS/JS — no build step, no dependencies.
+
+Built from a Claude Design canvas: warm light palette, Instrument Serif
+display type, a 720px column, and one screenshot per project in either a
+browser frame (web) or a phone frame (apps).
 
 ## Preview
 
@@ -13,24 +17,20 @@ python3 -m http.server 8000
 
 ## Deploy
 
-Any static host works as-is (GitHub Pages, Cloudflare Pages, Vercel, Netlify).
-For GitHub Pages: Settings → Pages → deploy from branch, root folder.
+Pushing to `claude/portfolio-build-design-2xvw6y` deploys to GitHub Pages via
+`.github/workflows/pages.yml`. Live at https://ziffos.github.io/portfolio/
 
-## Features
+## Structure
 
-- **Dark/light theme** — toggle top-right, persisted in `localStorage`
-  (`ziffos-theme`), dark by default, applied before first paint (no flash).
-- **Accent color** — amber by default. Set `data-accent="moss"` or
-  `data-accent="blue"` on `<html>` in `index.html` to switch.
-- **Screens grid** — tiles show a dashed placeholder until a matching image
-  exists. Drop screenshots into `assets/shots/` (see the README there for
-  expected filenames) and they appear automatically.
+- `index.html` — header, hero, four projects, websites, footer
+- `styles.css` — design tokens at the top; narrow-screen rules at the bottom
+- `main.js` — click a screenshot to open it full size (the frames crop hard)
+- `assets/fonts/` — Instrument Serif, self-hosted (no external font request)
+- `assets/shots/` — screenshots; see the README there
 
 ## Placeholders still to fill
 
-Search `index.html` for these and replace with real values:
-
-- `[years]` — Nordnet and Betty's Crispy Chicken date ranges (Experience)
-- `[url]` — project links for Betty's, Virelio, Stockwatch (Projects)
-- `[LinkedIn]` — LinkedIn profile URL and label (contact line)
-- `View CV` — link a CV file (contact line)
+- `[LinkedIn]` and `CV` links in the header nav — both point at `#`
+- Vigor has no screenshot yet, so its frame reads "Screenshot coming"
+- `admin.bettys.internal` and `mosaik.app` in the browser frames came from
+  the design; swap them if the real addresses differ
