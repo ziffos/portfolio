@@ -408,6 +408,14 @@ a.url {
   object-fit: cover;
 }
 
+/* A footnote under a gallery, same weight as the counter. */
+.note {
+  margin: 14px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+
 .counter {
   margin: 12px 0 0;
   font-family: var(--mono);
