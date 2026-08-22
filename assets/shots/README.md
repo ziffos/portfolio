@@ -21,7 +21,7 @@ Adding new ones: send full-resolution exports in any format and they get
 converted to WebP — 1600px wide for desktop screens, 1000px for phone
 screens, quality 0.82.
 
-The Plouma and Vigor files came from design mockups with a phone bezel drawn
-in. That bezel is trimmed and the corners filled with the frame's panel
-colour (#fffdf9) so the frame on the page is the only frame you see. Any new
-Plouma or Vigor export needs the same treatment; raw phone screenshots do not.
+Plouma and Vigor screenshots are clipped to a rounded rect at 15% of their
+width, with the corners left transparent, so the dark bezel drawn on the page
+sits flush against them. A new export needs the same treatment — the mockup's
+own bezel trimmed off first, if it has one.

@@ -34,6 +34,8 @@
   --border: #d5cfc2;
   --underline: #c9c2b4;
   --accent: #1f513f;
+  --bezel: #100f0e;
+  --button: #2a2724;
 
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: system-ui, -apple-system, sans-serif;
@@ -255,16 +257,68 @@ h1 {
   user-select: none;
 }
 
-/* Phones — Plouma, Vigor, Mosaik */
+/* Phones — Plouma and Vigor. A dark bezel with a dynamic island and side
+   buttons, sitting flush against screenshots whose corners are transparent.
+   The screen is contained, never cropped, so a bottom nav bar stays whole;
+   any leftover sliver takes the bezel colour and reads as part of it. */
 
 .frame.phone {
-  border-radius: 28px;
-  padding: 8px;
+  position: relative;
+  border: 0;
+  border-radius: 34px;
+  padding: 7px;
+  background: var(--bezel);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 14px 30px rgba(28, 26, 23, 0.20);
 }
 
 .frame.phone .screen {
   aspect-ratio: 9 / 19.5;
-  border-radius: 20px;
+  border-radius: 27px;
+  background: var(--bezel);
+}
+
+.frame.phone img { background: transparent; }
+
+/* Dynamic island */
+.frame.phone::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 15px;
+  border-radius: 999px;
+  background: var(--bezel);
+  z-index: 2;
+}
+
+/* Volume pair and mute switch down the left edge, power on the right. */
+.frame.phone .dev::before,
+.frame.phone .dev::after {
+  content: "";
+  position: absolute;
+  width: 2.5px;
+  border-radius: 2px;
+}
+
+.frame.phone .dev::before {
+  left: -2.5px;
+  top: 88px;
+  height: 134px;
+  background: linear-gradient(
+    var(--button) 0 26px, transparent 26px 36px,
+    var(--button) 36px 78px, transparent 78px 88px,
+    var(--button) 88px 134px);
+}
+
+.frame.phone .dev::after {
+  right: -2.5px;
+  top: 138px;
+  height: 62px;
+  background: var(--button);
 }
 
 /* Browser windows — Betty's dashboards */
