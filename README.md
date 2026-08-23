@@ -33,6 +33,7 @@ Pushing to `claude/portfolio-build-design-2xvw6y` deploys to GitHub Pages via
 ## Notes
 
 - Mosaik's browser frame has no address: it runs locally, so there is
-  nothing to show. Betty's reads `admin.bettys.internal`.
+  nothing to show. Betty's Admin Dashboard reads
+  `admin.bettyscrispychicken.com`, and the address is a live link.
 - `assets/favicon-32.png` and `assets/apple-touch-icon.png` are rendered
   from the site's own Instrument Serif — regenerate them if the mark changes.

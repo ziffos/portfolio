@@ -2,16 +2,18 @@ Screenshots, all WebP. Every file here is on the page. Betty's is a feature imag
 thumbnails under it; the other three are strips you drag sideways, in the
 order the <figure> elements appear in index.html.
 
-  Betty's  4  sales · marketing · menu · tv          (browser window + thumbnails)
+  Betty's Admin Dashboard
+           4  sales · marketing · menu · tv          (browser window + thumbnails)
   Plouma   7  welcome · home · directory · results
               listing · chat-offer · profile          (phone frame)
   Vigor    5  today · plan · progress · chat · memory (phone frame)
   Mosaik   5  home · company · mosaic · verdict
               company-mcd                             (browser window, phone-sized)
 
-Frames never crop: the image is contained, so a screenshot whose aspect
-differs a little from the frame gets thin bars in the panel colour, which
-blend into the frame.
+Betty's browser frame crops to fill: the image is covered and pinned to the
+top, so a screenshot taller than the frame is cut off at the bottom rather
+than letterboxed. The phone and Mosaik frames match their screenshots'
+aspect ratio exactly, so nothing is lost there.
 
 To reorder, move a <figure> inside its .track (or a <button> inside
 .thumbs for Betty's). To drop one, delete it — the counter follows
